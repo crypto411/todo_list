@@ -1,17 +1,16 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_list/core/routes.dart';
+import 'package:todo_list/core/constants.dart';
 import 'package:todo_list/ui/screen/add_todo_screen.dart';
 import 'package:todo_list/ui/screen/home_screen.dart';
-import 'package:todo_list/ui/viewmodel/home_view_model.dart';
+import 'package:todo_list/ui/viewmodel/todo_view_model.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(
-      TodoApp()
-  );
+  runApp(TodoApp());
 }
 
 class TodoApp extends StatelessWidget {
@@ -21,14 +20,12 @@ class TodoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-          ChangeNotifierProvider.value(value: HomeViewModel())
+        ChangeNotifierProvider.value(value: TodoViewModel()),
       ],
       child: MaterialApp(
-        title: "dyna's Todo",
+        title: APP_NAME,
         theme: ThemeData(
-            appBarTheme: AppBarTheme(),
-            primaryColor: Colors.deepOrangeAccent
-        ),
+            appBarTheme: AppBarTheme(), primaryColor: Colors.deepOrangeAccent),
         initialRoute: "/",
         routes: {
           HOME_PATH: (context) => HomeScreen(),
@@ -38,5 +35,3 @@ class TodoApp extends StatelessWidget {
     );
   }
 }
-
-

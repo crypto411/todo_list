@@ -28,9 +28,8 @@ class _TodoColorItemState extends State<TodoColorItem> {
           widget.todoColor.selected
               ? TodoColorItem.ICON_DEFAULT
               : TodoColorItem.ICON_SELECTED,
-          color: widget.todoColor.selected
-              ? Colors.white38
-              : widget.todoColor.color),
+          color:
+              widget.todoColor.selected ? Colors.grey : widget.todoColor.color),
       iconSize: 64.0,
       padding: EdgeInsets.all(1.0),
       splashColor: widget.todoColor.color,

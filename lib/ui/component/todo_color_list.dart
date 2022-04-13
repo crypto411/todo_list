@@ -20,7 +20,7 @@ class _TodoColorListState extends State<TodoColorList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        padding: EdgeInsets.all(6.00),
+        padding: EdgeInsets.all(3.00),
         scrollDirection: Axis.horizontal,
         itemCount: widget.todoColorList.length,
         itemBuilder: (BuildContext, index) {
