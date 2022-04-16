@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:todo_list/core/model/todo.dart';
 import 'package:todo_list/ui/component/todo_item.dart';
 
-class TodoList extends StatefulWidget {
+class TodoList extends StatelessWidget {
   List<Todo> todoList;
   TodoItemCallback todoItemCallback;
 
@@ -11,19 +10,13 @@ class TodoList extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<TodoList> createState() => _TodoListState();
-}
-
-class _TodoListState extends State<TodoList> {
-  @override
   Widget build(BuildContext context) {
-    if (widget.todoList.isNotEmpty) {
+    if (todoList.isNotEmpty) {
       return ListView.builder(
-          itemCount: widget.todoList.length,
+          itemCount: todoList.length,
           itemBuilder: (BuildContext context, int index) {
             return TodoItem(
-                todo: widget.todoList[index],
-                todoItemCallback: widget.todoItemCallback);
+                todo: todoList[index], todoItemCallback: todoItemCallback);
           });
     } else {
       return const ListTile(
